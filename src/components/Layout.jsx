@@ -7,9 +7,9 @@ const Layout = () => {
         <>
             <nav>
                 <ul>
-                <li><NavLink to={'/'} className={activeMenuClass}>Home</NavLink> </li>
-                <li><NavLink to={'/posts'} className={activeMenuClass}>Posts</NavLink> </li>
-                <li><NavLink to={'/create'} className={activeMenuClass}>Create Post</NavLink> </li>
+                    <li><NavLink to={'/'} className={activeMenuClass}>Home</NavLink> </li>
+                    <li><NavLink to={'/posts'} className={activeMenuClass}>Posts</NavLink> </li>
+                    <li><NavLink to={'/create'} className={activeMenuClass}>Create Post</NavLink> </li>
                 </ul>
             </nav>
             <div className="container">
