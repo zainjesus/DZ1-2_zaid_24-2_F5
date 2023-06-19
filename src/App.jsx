@@ -13,8 +13,8 @@ function App() {
             <Routes>
                 <Route path='/' element={<Layout />}>
                     <Route index element={<MainPage />}/>
-                    <Route path='posts' index element={<Posts />}/>
-                    <Route path='create' element={<CreatePost />}/>
+                    <Route path='posts' element={<Posts />}/>
+                    <Route path='posts/create' element={<CreatePost />}/>
                     <Route path='*' element={<NotFound />}/>
                 </Route>
             </Routes>

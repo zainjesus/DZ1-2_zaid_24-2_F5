@@ -1,26 +1,45 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom"
 
 const CreatePost = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
+    const navigate = useNavigate()
 
-    const handleTitleChange = (e) => {
-        setTitle(e.target.value);
-    };
+    const handleSubmit = (e) => {
+        e.preventDefault()
 
-    const handleBodyChange = (e) => {
-        setBody(e.target.value);
-    };
+        const post = {
+            title: title,
+            body: body,
+            userId: 7
+        };
+    
+       fetch('https://dummyjson.com/posts/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(post),
+        });
+
+        navigate("/posts")
+    }
+
 
     return (
-        <div>
-            <form>
-                <input type="text" placeholder="Введите название поста" value={title} onChange={handleTitleChange} />
-                <input type="text" placeholder="О чем вы хотите рассказать" value={body} onChange={handleBodyChange} />
-                <button type="submit">Создать пост</button>
-            </form>
-        </div>
+        <form onSubmit={handleSubmit}>
+            <div>
+                <input type="text" value={title} placeholder='Заголовок' onChange={(e) => setTitle(e.target.value) } />
+            </div>
+            <div>
+                <textarea value={body} placeholder='О чем вы хотитите зассказать?' onChange={(e) => setBody(e.target.value)} />
+            </div>
+            <button type="submit">Create Post</button>
+        </form>
     );
+
 };
+
 
 export default CreatePost;
